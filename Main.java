@@ -8,10 +8,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class Main {
-
     public static void main (String [] args) {
         
 // Принимает три строки, содержащие три поля: id игрушки, название и частоту выпадения игрушки:
@@ -37,15 +34,15 @@ public class Main {
     }
     // Заполняем три массива:
     List<Toy> toys = new ArrayList<>();
-    int[] weights = new int[3];
     String[] ids = new String[3];
     String[] names = new String[3];
+    int[] weights = new int[3];
     
     toys.add(new Toy("id1",	"Машинка", 5));
     toys.add(new Toy("id2",	"Кукла", 3));
     toys.add(new Toy("id3",	"Пирамидка", 6));
     toys.add(new Toy("id4",	"Паровоз", 2));
-    toys.add(new Toy("id5",	"Мельница", 1));
+    toys.add(new Toy("id5",	"Мельница", 7));
 
     for (int i = 0; i < 3; i++) {
     	Toy toy = toys.get(i);
@@ -54,7 +51,7 @@ public class Main {
     	weights[i] = toy.getFrequency();
     }
     //Создаем список игрушек 'toys', далее заполняем его тремя элементами и далее перебираем каждую игрушку:
-    Queue<Toy> queue = new PriorityQueue<>(3, Comparator.comparingInt(Toy::getFrequency));
+    PriorityQueue<Toy> queue = new PriorityQueue<>(Comparator.comparingInt(Toy::getFrequency));
     for (Toy toy : toys){
         queue.add(toy);
     }
