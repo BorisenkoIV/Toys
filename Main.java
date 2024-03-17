@@ -43,8 +43,10 @@ public class Main {
     
     toys.add(new Toy("id1",	"Машинка", 5));
     toys.add(new Toy("id2",	"Кукла", 3));
-    toys.add(new Toy("id3",	"Пирамидка", 2));
-    
+    toys.add(new Toy("id3",	"Пирамидка", 6));
+    toys.add(new Toy("id4",	"Паровоз", 2));
+    toys.add(new Toy("id5",	"Мельница", 1));
+
     for (int i = 0; i < 3; i++) {
     	Toy toy = toys.get(i);
     	ids[i] = toy.getId();
@@ -53,8 +55,8 @@ public class Main {
     }
     //Создаем список игрушек 'toys', далее заполняем его тремя элементами и далее перебираем каждую игрушку:
     Queue<Toy> queue = new PriorityQueue<>(3, Comparator.comparingInt(Toy::getFrequency));
-    for (int i = 0; i < 3; i++) {
-    	queue.offer(toys.get(i));
+    for (Toy toy : toys){
+        queue.add(toy);
     }
     
     try (PrintWriter writer = new PrintWriter(new File("output.txt"))){
